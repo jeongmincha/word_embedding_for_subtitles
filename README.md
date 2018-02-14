@@ -5,6 +5,12 @@
 ### Tasks
 - POS tagging for recognizing actors
   - need more processing than naive POS tagging
+- Gensim Word2Vec   
+  - `model=Word2Vec(sentences)`     
+    - `model.init_sims(replace=True)`       
+      - Remove useless memory (memory optimization)   
+  - `model.most_similar('Apple')`     
+    - Retrieve most similar words to 'Apple'.
 
 ### Data
 - Friends subtitles (Season 1-10)
