@@ -161,8 +161,25 @@ function restart(nodes, links, lastNodeId)
         .attr('class','link')
         .classed('selected',function(d) {return d === selected_link; })
         .style('marker-end', function(d) { return 'url(#end-arrow)';})
+        .attr("style", function(d) {
+            var strokeWidth = 1;
+            if (d.weight > 0.8) {
+                strokeWidth = 4;
+            } else if (d.weight > 0.7) {
+                strokeWidth = 2;
+            } else {
+                strokeWidth = 1;
+            }
+            var style = "stroke-width: " + strokeWidth + "px;";
+            if (d.weight > 0.87) {
+                style += " stroke: red;";
+            }
+            console.log(style);
+            return style;
+        })
         .attr('d', function (d)
         {
+            console.log(d.weight);
             var deltaX = d.target.x - d.source.x,
                 deltaY = d.target.y - d.source.y,
                 dist = Math.sqrt(deltaX * deltaX + deltaY * deltaY),
