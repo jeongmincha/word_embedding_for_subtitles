@@ -62,7 +62,7 @@ function resetMouseVars() {
 }
 
 
-function restart()
+function restart(nodes, links, lastNodeId)
 {
     // redraw everything
 
@@ -431,4 +431,4 @@ svg.on('mousedown', mousedown)
 d3.select(window)
     .on('keydown',keydown)
     .on('keyup',keyup);
-restart();
+restart(nodes, links, lastNodeId);
