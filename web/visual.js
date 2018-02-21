@@ -44,7 +44,7 @@ svg.append('svg:defs').append('svg:marker')
 
 var drag_line = svg.append('svg:path')
     .attr('class', 'link dragline hidden')
-    .attr('d', 'M0,0L0,0');
+    .attr('d', 'M0,0L0,5');
 
 var path;
 var circle;

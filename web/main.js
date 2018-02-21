@@ -12,13 +12,15 @@ var NE_TYPE = {
 
 function retrieveNodes(data, neType) {
     var nodes = [];
-    for (var i = 0; i < data[neType].objects.length; i++) {
+    var len = data[neType].objects.length;
+    // var len = 12;
+    for (var i = 0; i < len; i++) {
         var obj = data[neType].objects[i];
-        var angleUnit = 360 / data[neType].objects.length;
+        var angleUnit = 360 / len;
         nodes.push({
             id: obj.title, 
             x: 480 + Math.cos(angleUnit * i) * 300,
-            y: 320 + Math.sin(angleUnit * i) * 300
+            y: 480 + Math.sin(angleUnit * i) * 300
         });
     }
     return nodes;
@@ -46,18 +48,22 @@ getData(urlObjectClasses).then(function(data){
     getData(urlPersonRelations).then(function(data) {
 
         var links = [];
+        var len = nodes.length;
+        // var len = 12;
         for (var i = 0; i < data.objects.length; i++) {
             var obj = data.objects[i];
             // console.log(obj);
             var source = obj.source.split("O")[1] - 1;
             var target = obj.target.split("O")[1] - 1;
             var value = obj.value;
-
-            links.push({
-                source: nodes[source], 
-                target: nodes[target],
-                weight: value
-            });
+            
+            if (source < len && target < len) {
+                links.push({
+                    source: nodes[source], 
+                    target: nodes[target],
+                    weight: value.toFixed(3)
+                });
+            }
         }
 
         var lastNodeId = 3;

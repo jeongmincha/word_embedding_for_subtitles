@@ -18,7 +18,7 @@ svg:not(.active):not(.ctrl) {
 path.link {
     fill: none;
     stroke: #000;
-    stroke-width: 6px;
+    stroke-width: 2px;
     cursor: default;
 }
 
@@ -44,7 +44,7 @@ circle.node {
 }
 
 text {
-    font: 12px sans-serif;
+    font: 10px;
     pointer-events: none;
 }
 
@@ -57,4 +57,5 @@ text.weight {
 text.id {
     text-anchor: middle;
     font-weight: bold;
+    font: 32px sans-serif;
 }
