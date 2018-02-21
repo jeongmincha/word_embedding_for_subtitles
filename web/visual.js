@@ -1,5 +1,5 @@
 var width = 960,
-    height = 500,
+    height = 960,
     colors = d3.scale.category10();
 
 var svg = d3.select('body')

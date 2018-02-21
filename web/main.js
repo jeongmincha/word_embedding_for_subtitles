@@ -14,7 +14,12 @@ function retrieveNodes(data, neType) {
     var nodes = [];
     for (var i = 0; i < data[neType].objects.length; i++) {
         var obj = data[neType].objects[i];
-        nodes.push({id: obj.title, x: (i+1) * 30, y: (i+1) * 30});
+        var angleUnit = 360 / data[neType].objects.length;
+        nodes.push({
+            id: obj.title, 
+            x: 480 + Math.cos(angleUnit * i) * 300,
+            y: 320 + Math.sin(angleUnit * i) * 300
+        });
     }
     return nodes;
 }
@@ -51,7 +56,8 @@ getData(urlObjectClasses).then(function(data){
             links.push({
                 source: nodes[source], 
                 target: nodes[target],
-                weight: value});
+                weight: value
+            });
         }
 
         var lastNodeId = 3;
