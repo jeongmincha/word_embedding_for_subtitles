@@ -16,11 +16,11 @@ function retrieveNodes(data, neType) {
     // var len = 12;
     for (var i = 0; i < len; i++) {
         var obj = data[neType].objects[i];
-        var angleUnit = 360 / len;
+        var angleUnit = 360 / len * 0.0174533;
         nodes.push({
             id: obj.title, 
-            x: 480 + Math.cos(angleUnit * i) * 300,
-            y: 480 + Math.sin(angleUnit * i) * 300
+            x: 480 + Math.cos(angleUnit * i) * 360,
+            y: 480 + Math.sin(angleUnit * i) * 360
         });
     }
     return nodes;
