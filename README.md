@@ -28,3 +28,10 @@
 
 - This image represents a weighted graph for 18 persons which are considered as PERSON named entities. The weight here is calculted by word2vec similarity. 
 - Note that a simple version of gensim word2vec (with no hand-craft engineering) was not able to catch people correctly. For example, *Hard* is not apparently a person.
+
+<img src="./results/img/colored-18person.PNG" width="600">
+
+- This image represents the same graph above except that some edges are bold and colored as red. 
+- Red edges for when similarity > 0.87 
+- Bold edges for when similarity > 0.8
+- Normal edges otherwise
